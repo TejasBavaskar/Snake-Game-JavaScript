@@ -26,3 +26,36 @@ body {
   background-color: yellow;
   border: 0.25vmin solid black;
 }
+
+.lost-msg {
+  display: none;
+  position: fixed;
+  top: 0%;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: rgb(27, 26, 26);
+  flex-direction: column;
+  color: white;
+  font-size: 50px;
+}
+
+.lost-msg button {
+  cursor: pointer;
+  font-size: 2rem;
+  font-family: 'Cinzel', serif;
+  padding: 5px 5px;
+  border-radius: 15px;
+}
+
+.lost-msg button:hover {
+  background-color: black;
+  padding: 15px 15px;
+  color: white;
+}
+
+.lost-msg.show {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
