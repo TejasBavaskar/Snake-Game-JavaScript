@@ -1,8 +1,8 @@
-export const SNAKE_SPEED = 1;
+import { getInputDirection } from './input.js';
+
+export const SNAKE_SPEED = 2;
 const snakeBody = [
-  {x: 12, y:11},
-  {x: 13, y:11},
-  {x: 14, y:11},
+  {x: 10, y: 10}, //snake start  location
 ];
 
 export function updateSnake() {
@@ -10,8 +10,9 @@ export function updateSnake() {
     snakeBody[i] = {...snakeBody[i-1]};
   }
 
-  snakeBody[0].x += 1;
-  snakeBody[0].y += 0;
+  const inputDirection = getInputDirection()
+  snakeBody[0].x += inputDirection.x;
+  snakeBody[0].y += inputDirection.y;
 }
 
 export function updateDraw(gameBoard) {
