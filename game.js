@@ -21,9 +21,9 @@ function main(currentTime) {
     lostElement.classList.add('show');
 
     const restartBtn = document.getElementById('restart-btn');
-    //isGameOver = false;
+
     restartBtn.addEventListener('click', () => {
-      window.location = '/';
+      window.location = '/Snake-Game-JavaScript/';
     });
   }
 
