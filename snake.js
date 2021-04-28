@@ -1,8 +1,8 @@
 import { getInputDirection } from './input.js';
 
-export const SNAKE_SPEED = 5;
+export const SNAKE_SPEED = 8;
 const snakeBody = [
-  {x: 21, y: 21}, //snake start  location
+  {x: 10, y: 11}, //snake start  location
 ];
 let newSegment = 0;
 
@@ -43,4 +43,17 @@ function addSegmentToSnake() {
   }
 
   newSegment = 0;
+}
+
+export function getSnakeHead() {
+  return snakeBody[0];
+}
+
+export function isSnakeIntersect() {
+  return snakeBody.some((item, index) => {
+    if(index === 0) {
+      return false;
+    }
+    return item.x === snakeBody[0].x && item.y === snakeBody[0].y;
+  })
 }
