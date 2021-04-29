@@ -1,10 +1,24 @@
 import { getInputDirection } from './input.js';
 
-export const SNAKE_SPEED = 8;
-const snakeBody = [
-  {x: 10, y: 11}, //snake start  location
+export let SNAKE_SPEED = 5;
+let snakeBody = [
+  {x: 10, y: 10}, //snake start  location
 ];
-let newSegment = 0;
+export let newSegment = 0;
+
+const speedUpBtn = document.querySelector('.speed-up-btn');
+speedUpBtn.addEventListener('click', ()=> {
+  if(SNAKE_SPEED >=0 && SNAKE_SPEED<10) {
+    SNAKE_SPEED++;
+  }
+});
+
+const speedDownBtn = document.querySelector('.speed-down-btn');
+speedDownBtn.addEventListener('click', ()=> {
+  if(SNAKE_SPEED >1 && SNAKE_SPEED<=10) {
+    SNAKE_SPEED--;
+  }
+});
 
 export function updateSnake() {
   addSegmentToSnake();
@@ -56,4 +70,10 @@ export function isSnakeIntersect() {
     }
     return item.x === snakeBody[0].x && item.y === snakeBody[0].y;
   })
+}
+
+export function restartSnake() {
+  snakeBody = [
+    {x: 10, y: 10}, //snake start  location
+  ];
 }

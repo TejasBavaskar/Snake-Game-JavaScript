@@ -8,7 +8,40 @@ let lastDirection = {
   y:0
 };
 
-window.addEventListener('keydown', (event) => {
+const inputBtnGroup = document.querySelectorAll('[data-input-btn]');
+inputBtnGroup.forEach(btn => {
+  btn.addEventListener('click', () => {
+    let key = '';
+    switch(btn.id) {
+      case 'up-btn':
+        key = 'ArrowUp';
+        break;
+      case 'down-btn':
+        key = 'ArrowDown';
+        break;
+      case 'right-btn':
+        key = 'ArrowRight';
+        break;
+      case 'left-btn':
+        key = 'ArrowLeft';
+        break;
+    }
+
+    const input = {
+      key: key
+    }
+    setInputDirection(input);
+  });
+})
+
+window.addEventListener('keydown', setInputDirection)
+
+export function getInputDirection() {
+  lastDirection = inputDirection;
+  return inputDirection;
+}
+
+function setInputDirection(event) {
   switch(event.key) {
     case 'ArrowUp':
       if(lastDirection.y !== 0) {
@@ -35,10 +68,4 @@ window.addEventListener('keydown', (event) => {
       inputDirection = { x: 1, y: 0};
       break;
   }
-  
-})
-
-export function getInputDirection() {
-  lastDirection = inputDirection;
-  return inputDirection;
 }

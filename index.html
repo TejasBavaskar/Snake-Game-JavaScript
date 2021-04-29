@@ -4,12 +4,30 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <title>Snake &#128013;</title>
 </head>
 <body>
-  <div class="board" id="board">
+  <div class="game-title">
+    <h1>Snake &#128013;</h1>
+  </div>
+  <div class="board" id="board"></div>
+  <div class="settings">
+    <div class="controller">
+        <button class="up-btn" id="up-btn" data-input-btn><i class="fa fa-caret-up" style="font-size:25px"></i></button>
+        <button class="right-btn" id="right-btn" data-input-btn><i class="fa fa-caret-right" style="font-size:25px"></i></button>
+        <button class="down-btn" id="down-btn" data-input-btn><i class="fa fa-caret-down" style="font-size:25px"></i></button>
+        <button class="left-btn" id="left-btn" data-input-btn><i class="fa fa-caret-left" style="font-size:25px"></i></button>
+    </div>
+    <div class="snake-speed">
+        <p class="speed-title">
+          Boost &#128293; &#128293;
+        </p>
+      <button class="speed-up-btn"><i class="fa fa-angle-double-up" style="font-size:24px"></i></button>
+      <button class="speed-down-btn"><i class="fa fa-angle-double-down" style="font-size:24px"></i></button>
+    </div>
   </div>
   <div class="lost-msg">
     <div data-lost-text>You Lost!!</div>
