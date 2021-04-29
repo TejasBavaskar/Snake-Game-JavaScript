@@ -1,17 +1,10 @@
-import { SNAKE_SPEED, updateSnake, drawSnake, getSnakeHead, isSnakeIntersect } from './snake.js';
+import { SNAKE_SPEED, updateSnake, drawSnake, getSnakeHead, isSnakeIntersect, restartSnake } from './snake.js';
 import { updateFood, drawFood } from './food.js';
 import { isSnakeOutsideGride } from './grid.js';
 
 let lastRenderTime = 0;
 let isGameOver = false;
 const gameBoard = document.getElementById('board');
-
-startGame();
-
-function startGame() {
-  main();
-}
-
 
 function main(currentTime) {
   if(isGameOver) {
@@ -23,7 +16,9 @@ function main(currentTime) {
     const restartBtn = document.getElementById('restart-btn');
 
     restartBtn.addEventListener('click', () => {
-      window.location = '/Snake-Game-JavaScript/';
+      isGameOver = false;
+      lostElement.classList.remove('show');
+      restartSnake();
     });
   }
 
@@ -55,6 +50,5 @@ function drawItems() {
 }
 
 function checkDeath() {
-  console.log(isSnakeIntersect());
   isGameOver = isSnakeOutsideGride(getSnakeHead()) || isSnakeIntersect();
 }
